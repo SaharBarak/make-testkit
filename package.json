@@ -9,7 +9,7 @@
   "repository": { "type": "git", "url": "git+https://github.com/SaharBarak/make-testkit.git" },
   "workspaces": ["packages/*"],
   "scripts": {
-    "test": "node --test \"packages/engine/test/**/*.test.mjs\" \"examples/test/**/*.test.mjs\"",
+    "test": "node --test",
     "build": "npm run build -w @make-testkit/mcp"
   },
   "engines": { "node": ">=18" }
