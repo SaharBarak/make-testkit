@@ -1,0 +1,27 @@
+{
+  "name": "@make-testkit/mcp",
+  "version": "0.1.0",
+  "description": "Model Context Protocol server for Make.com blueprints — run scenario test suites, evaluate IML, simulate runs, and lint blueprints from any MCP client.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Sahar Barak",
+  "repository": { "type": "git", "url": "git+https://github.com/SaharBarak/make-testkit.git", "directory": "packages/mcp" },
+  "keywords": ["make.com", "mcp", "model-context-protocol", "claude", "iml", "testing"],
+  "bin": { "make-testkit-mcp": "dist/index.js" },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "node --experimental-strip-types src/index.ts"
+  },
+  "dependencies": {
+    "@make-testkit/engine": "*",
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "make-testkit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Test Make.com (Integromat) scenarios offline — execution engine, MCP server, and Claude Code plugin.",
+  "license": "MIT",
+  "author": "Sahar Barak",
+  "homepage": "https://saharbarak.github.io/make-testkit/",
+  "repository": { "type": "git", "url": "git+https://github.com/SaharBarak/make-testkit.git" },
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "test": "node --test \"packages/engine/test/**/*.test.mjs\" \"examples/test/**/*.test.mjs\"",
+    "build": "npm run build -w @make-testkit/mcp"
+  },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "make-testkit",
+  "owner": { "name": "Sahar Barak", "url": "https://github.com/SaharBarak" },
+  "metadata": {
+    "description": "Offline testing toolkit for Make.com scenarios.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "make-testkit",
+      "source": "./",
+      "description": "Evaluate IML, simulate blueprint runs, lint scenarios, and run blueprint test suites offline — engine + MCP server + slash commands.",
+      "category": "testing",
+      "keywords": ["make.com", "integromat", "iml", "testing", "mcp"]
+    }
+  ]
+}

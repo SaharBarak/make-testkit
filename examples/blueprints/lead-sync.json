@@ -1,0 +1,57 @@
+{
+  "name": "lead-sync (example)",
+  "flow": [
+    {
+      "id": 1,
+      "module": "demo:SearchLeads",
+      "mapper": { "status": "New" },
+      "metadata": { "designer": { "comment": "selector: only un-synced New leads" } }
+    },
+    {
+      "id": 2,
+      "module": "demo:DedupKey",
+      "mapper": { "key": "{{lower(trim(1.email))}}" }
+    },
+    {
+      "id": 10,
+      "module": "builtin:BasicRouter",
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 3,
+              "module": "demo:PushLead",
+              "mapper": { "email": "{{2.key}}", "name": "{{1.name}}", "deduplicate": true },
+              "filter": {
+                "name": "has email",
+                "conditions": [[{ "a": "{{2.key}}", "o": "text:notempty" }]]
+              },
+              "onerror": [
+                { "id": 91, "module": "builtin:Ignore" }
+              ]
+            },
+            {
+              "id": 4,
+              "module": "demo:UpdateLead",
+              "mapper": { "id": "{{1.id}}", "fields": { "status": "Contacted", "syncState": "Pushed" } }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 5,
+              "module": "util:SetVariables",
+              "mapper": { "variables": [{ "name": "skipped", "value": "{{1.id}}" }] },
+              "filter": {
+                "name": "no email",
+                "conditions": [[{ "a": "{{2.key}}", "o": "text:empty" }]]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": { "instant": false, "scenario": { "dlq": true, "maxErrors": 3 } }
+}

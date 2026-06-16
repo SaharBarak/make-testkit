@@ -1,0 +1,17 @@
+{
+  "name": "make-testkit",
+  "version": "0.1.0",
+  "description": "Test Make.com (Integromat) scenarios offline from Claude Code — evaluate IML, simulate blueprint runs, lint scenarios, and run blueprint test suites via the bundled MCP server.",
+  "author": { "name": "Sahar Barak" },
+  "homepage": "https://saharbarak.github.io/make-testkit/",
+  "repository": "https://github.com/SaharBarak/make-testkit",
+  "license": "MIT",
+  "keywords": ["make.com", "integromat", "iml", "testing", "mcp", "automation"],
+  "commands": "./plugin/commands",
+  "mcpServers": {
+    "make-testkit": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/packages/mcp/dist/index.js"]
+    }
+  }
+}

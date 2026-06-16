@@ -1,0 +1,21 @@
+{
+  "name": "@make-testkit/engine",
+  "version": "0.1.0",
+  "description": "Offline execution engine for Make.com (Integromat) blueprints — IML evaluator, filter/formula operators, scenario interpreter with failure semantics, and a blueprint linter.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Sahar Barak",
+  "homepage": "https://saharbarak.github.io/make-testkit/",
+  "repository": { "type": "git", "url": "git+https://github.com/SaharBarak/make-testkit.git", "directory": "packages/engine" },
+  "keywords": ["make", "make.com", "integromat", "blueprint", "iml", "testing", "automation", "no-code"],
+  "exports": {
+    ".": { "types": "./types/index.d.ts", "import": "./src/index.mjs" }
+  },
+  "main": "./src/index.mjs",
+  "types": "./types/index.d.ts",
+  "files": ["src", "types"],
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18" }
+}
